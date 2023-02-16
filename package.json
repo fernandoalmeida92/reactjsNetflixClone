@@ -1,5 +1,6 @@
 {
   "name": "netflixclone",
+  "homepage": "https://github.com/fernandoalmeida92/reactjsNetflixClone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -46,6 +47,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fernandoalmeida92/reactjsNetflixClone/issues"
-  },
-  "homepage": "https://github.com/fernandoalmeida92/reactjsNetflixClone#readme"
+  }
 }
