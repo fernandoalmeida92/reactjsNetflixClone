@@ -3,12 +3,14 @@ import './App.css';
 import Tmdb from "./Tmdb";
 import MovieRow from "./components/MovieRow";
 import FeaturedMovie from "./components/FeaturedMovie";
+import Header from "./components/Header";
 
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */              //[TRATA ERROS EXPORT ANONIMO]
 export default () =>{
 
   const [movieList, setMovieList] = useState([]);
   const [FeaturedData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() =>{
     const loadall = async () =>{
@@ -25,10 +27,32 @@ export default () =>{
       setFeaturedData(chosenInfo); 
     }
     loadall();
-  },[])
+  },[]);
+
+  // FAZENDO UM MANITORAMENTO DO SCROLL DA PAGE
+  useEffect(()=>{
+    //VARIAVEL DE MANITORAMENTO
+    const scrollListener = () =>{
+      if(window.scrollY > 10){
+        setBlackHeader(true);
+      }else{
+        setBlackHeader(false);
+      }
+    }
+
+    //ADD O EVENTO SCROLL A FUNCAO
+    window.addEventListener('scroll', scrollListener);
+
+    //REMOVENDO O EVENTO 
+    return () =>{
+      window.removeEventListener('scroll', scrollListener);
+    }
+  },[]);
 
   return(
     <div className="page">
+      <Header black={blackHeader}/>
+
       {
         FeaturedData && <FeaturedMovie item={FeaturedData}/>
       }
@@ -42,6 +66,11 @@ export default () =>{
           ))
         }
       </section>
+      <footer>
+        Feito com coração <span role="img" aria-label="coração"> &#128151;</span> pela B7Web<br/>
+        Direitos de imagens para NETFLIX.<br/>
+        Dados pegos do site Themoviedb.org 
+      </footer>
     </div>
   )
 }
