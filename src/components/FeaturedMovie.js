@@ -33,7 +33,7 @@ export default ({item}) =>{
                     </div>
                     <div className="featured--genres"><strong>Gêneros:</strong> {genres.join(', ')} </div>                    
                 </div>
-            </div> 
+            </div>  
         </section>
     );
 }
