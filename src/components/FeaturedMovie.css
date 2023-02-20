@@ -93,3 +93,27 @@ footer{
     margin: 50px 0;
     text-align: center;
 }
+
+@media (max-width: 760px){
+    .featured{
+        height: 90vh;
+    }
+    .featured--name{
+        font-size: 40px;
+    }
+    .featured--info{
+        font-size: 16px;
+    }
+    .featured--description{
+        font-size: 14px;
+        max-width: 100%;
+        margin-right: 30px;
+    }
+    .featured--watchbutton,
+    .featured--mylistbutton{
+        font-size: 16px;
+    }
+    .featured--genres{
+        font-size: 14px;
+    }
+}
